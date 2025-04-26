@@ -65,6 +65,12 @@ export function updateUserData(partialUser: Partial<UserData>): UserData | null 
 
 export const sendMessageToGemini = async (message: string, userData: UserData): Promise<string> => {
   try {
+
+    const dynamicContent = {
+      message: message,
+      userDetails: userData,
+    };
+    
     const response = await fetch('https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=AIzaSyBjIA5D2Y7YQN7JVxbxvZV2LnVDZt7E0qY', {
       method: 'POST',
       headers: {
@@ -75,6 +81,7 @@ export const sendMessageToGemini = async (message: string, userData: UserData): 
           {
             parts: [
               { text: message }
+              { text: `User Info: ${JSON.stringify(dynamicContent.userDetails)}` },
             ]
           }
         ]
