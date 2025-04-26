@@ -80,7 +80,7 @@ export const sendMessageToGemini = async (message: string, userData: UserData): 
         contents: [
           {
             parts: [
-              { text: message }
+              { text: message },
               { text: `User Info: ${JSON.stringify(dynamicContent.userDetails)}` },
             ]
           }
