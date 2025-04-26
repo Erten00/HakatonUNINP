@@ -27,8 +27,9 @@ const App = () => {
     }
   }, []);
 
-
   const allowedRoutes = ['/fitness', '/news', '/nutrition', '/organization', '/profile'];
+
+  const restrictedRoutes = ['/login']
 
   return (
     <QueryClientProvider client={queryClient}>

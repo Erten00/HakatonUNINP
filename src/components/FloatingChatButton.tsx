@@ -1,5 +1,5 @@
 
-import { Circle } from 'lucide-react';
+import { MessageCircle } from 'lucide-react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { Button } from './ui/button';
 
@@ -16,9 +16,14 @@ const FloatingChatButton = () => {
   };
 
   return (
-    <Button onClick={handleClick} className="fixed bottom-20 right-4 rounded-full p-4 bg-[#33C3F0] hover:bg-[#33C3F0]/90 shadow-lg">
-      <Circle className="h-6 w-6"/>
-    </Button>
+    <div className="relative">
+      <Button onClick={handleClick} className="fixed bottom-20 right-4 rounded-full p-4 bg-[#33C3F0] hover:bg-[#33C3F0]/90 shadow-lg">
+        <MessageCircle className="h-6 w-6"/>
+      </Button>
+      <div className="absolute top-0 right-0 -mt-1 -mr-1 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">
+        1
+      </div>
+    </div>
   );
 };
 
