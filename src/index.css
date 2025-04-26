@@ -1,0 +1,63 @@
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 198 64% 10%;
+    --foreground: 47 56% 95%;
+    --card: 198 64% 10%;
+    --card-foreground: 47 56% 95%;
+    --popover: 198 64% 10%;
+    --popover-foreground: 47 56% 95%;
+    --primary: 169 65% 69%;
+    --primary-foreground: 198 64% 10%;
+    --secondary: 180 89% 25%;
+    --secondary-foreground: 47 56% 95%;
+    --muted: 180 89% 25%;
+    --muted-foreground: 47 56% 95%;
+    --accent: 180 89% 25%;
+    --accent-foreground: 47 56% 95%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 47 56% 95%;
+    --border: 180 89% 25%;
+    --input: 180 89% 25%;
+    --ring: 169 65% 69%;
+    --radius: 0.75rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  body {
+    @apply bg-smarty-dark text-foreground antialiased;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+}
+
+@layer components {
+  .user-bubble {
+    @apply text-white chat-bubble self-end rounded-br-none bg-smarty;
+  }
+}
+
+@layer utilities {
+  .glass-morphism {
+    @apply backdrop-blur-xl bg-white/5 border border-white/10 shadow-[0_4px_12px_-2px_rgba(0,0,0,0.3)];
+  }
+  
+  .chat-bubble {
+    @apply rounded-2xl p-4 max-w-[85%] animate-slide-in;
+  }
+
+  .bot-bubble {
+    @apply bg-secondary/80 text-white chat-bubble rounded-bl-none backdrop-blur-sm;
+  }
+}
