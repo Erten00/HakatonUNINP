@@ -28,7 +28,8 @@ const Nutrition = () => {
       protein: 25,
       carbs: 45, 
       fat: 15,
-      description: 'Ovsena kaša sa bademovim mlekom, bananama i orašastim plodovima.'
+      description: 'Ovsena kaša sa bademovim mlekom, bananama i orašastim plodovima.',
+      pic: 'https://withaddedlove.com/wp-content/uploads/2020/01/DSC_0994-S.jpg'
     },
     { 
       name: 'Ručak', 
@@ -36,7 +37,8 @@ const Nutrition = () => {
       protein: 35,
       carbs: 60, 
       fat: 20,
-      description: 'Piletina sa integralnim pirinčem i mešanim povrćem.'
+      description: 'Piletina sa integralnim pirinčem i mešanim povrćem.',
+      pic: 'https://skinnyms.com/wp-content/uploads/2016/01/Chicken-Stir-Fry-with-Vegetables-and-Brown-Rice-600x400.jpg' // Example image URL
     },
     { 
       name: 'Užina', 
@@ -44,7 +46,8 @@ const Nutrition = () => {
       protein: 10,
       carbs: 15, 
       fat: 10,
-      description: 'Grčki jogurt sa bobičastim voćem i medom.'
+      description: 'Grčki jogurt sa bobičastim voćem i medom.',
+      pic: 'https://usa.fage/sites/usa.fage/files/recipes/hero/Fage_Recipe_Headers_1200x500_Apr21_Plain_Loaded_BowlsA_Hero_1291.jpg' // Example image URL
     },
     { 
       name: 'Večera', 
@@ -52,7 +55,8 @@ const Nutrition = () => {
       protein: 30,
       carbs: 35, 
       fat: 20,
-      description: 'Pečena riba sa salatom i slatkim krompirom.'
+      description: 'Pečena riba sa salatom i slatkim krompirom.',
+      pic: 'https://ichef.bbci.co.uk/food/ic/food_16x9_1600/recipes/sicilian_fish_with_sweet_20289_16x9.jpg' // Example image URL
     }
   ];
   
@@ -90,6 +94,7 @@ const Nutrition = () => {
                   <div key={index} className="border border-white/10 rounded-lg p-3">
                     <h3 className="font-semibold text-smarty-DEFAULT">{meal.name}</h3>
                     <p className="text-sm mt-1">{meal.description}</p>
+                      {meal.pic && ( <img src={meal.pic} alt={meal.name} className="w-max h-auto mt-3 rounded-lg mx-auto" />)}
                     <div className="grid grid-cols-3 gap-2 mt-2 text-xs">
                       <div className="bg-secondary/50 p-2 rounded">
                         <div>Kalorije</div>
