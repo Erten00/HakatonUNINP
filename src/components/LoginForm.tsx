@@ -93,14 +93,7 @@ const LoginForm = () => {
           <form onSubmit={handleSubmit} className="space-y-4">
             <div className="space-y-2">
               <Label htmlFor="email">Email</Label>
-              <Input 
-                id="email"
-                name="email"
-                type="email"
-                placeholder="vas@email.com"
-                value={formData.email}
-                onChange={handleChange}
-                className={errors.email ? "border-red-500" : ""}
+              <Input id="email"name="email"type="email"placeholder="vas@email.com"value={formData.email}onChange={handleChange}className={errors.email ? "border-red-500" : ""}
               />
               {errors.email && (
                 <p className="text-red-500 text-xs">{errors.email}</p>
@@ -109,25 +102,13 @@ const LoginForm = () => {
 
             <div className="space-y-2">
               <Label htmlFor="password">Lozinka</Label>
-              <Input 
-                id="password"
-                name="password"
-                type="password"
-                placeholder="Unesite lozinku"
-                value={formData.password}
-                onChange={handleChange}
-                className={errors.password ? "border-red-500" : ""}
-              />
+              <Input id="password"name="password"type="password"placeholder="Unesite lozinku"value={formData.password}onChange={handleChange}className={errors.password ? "border-red-500" : ""}/>
               {errors.password && (
                 <p className="text-red-500 text-xs">{errors.password}</p>
               )}
             </div>
 
-            <Button 
-              type="submit" 
-              className="w-full" 
-              variant="default"
-            >
+            <Button type="submit" className="w-full" variant="default">
               Prijavi se
             </Button>
           </form>

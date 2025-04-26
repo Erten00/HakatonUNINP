@@ -59,7 +59,7 @@ const InterestSelector: React.FC<InterestSelectorProps> = ({ onInterestsSelected
           ))}
         </div>
         
-        <Button onClick={handleSubmit} disabled={selectedInterests.length !== 3} className="w-full bg-smarty-DEFAULT hover:bg-smarty-DEFAULT/90">
+        <Button onClick={handleSubmit} disabled={selectedInterests.length !== 3} className="w-full bg-smarty-dark text-lg text-white">
           Potvrdi ({selectedInterests.length}/3)
         </Button>
       </div>
