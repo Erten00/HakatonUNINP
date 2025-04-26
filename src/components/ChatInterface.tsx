@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
-import { getUserFromStorage, sendMessageToDeepSeek, updateUserData, UserData } from '@/lib/utils';
+import { getUserFromStorage, sendMessageToGemini, updateUserData, UserData } from '@/lib/utils';
 import { useToast } from '@/hooks/use-toast';
 import InterestSelector from '@/components/InterestSelector';
 
@@ -72,8 +72,7 @@ const ChatInterface: React.FC = () => {
         
         setUserData(updatedUserData);
         
-        // Get response from DeepSeek AI (simulated)
-        const botResponse = await sendMessageToDeepSeek(
+        const botResponse = await sendMessageToGemini(
           currentQuestion === 'age' ? "Koliko godina imaš" :
           currentQuestion === 'weight' ? "Koja je tvoja telesna masa" :
           currentQuestion === 'height' ? "Koliko si visok" : "Odaberi oblasti",
@@ -116,7 +115,7 @@ const ChatInterface: React.FC = () => {
       setCurrentQuestion('complete');
       
       // Get response from DeepSeek AI (simulated)
-      sendMessageToDeepSeek("Odabrane oblasti", updatedUserData)
+      sendMessageToGemini("Odabrane oblasti", updatedUserData)
         .then(response => {
           setTimeout(() => {
             setMessages(prev => [...prev, { text: response, sender: 'bot' }]);

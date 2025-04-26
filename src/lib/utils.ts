@@ -63,15 +63,22 @@ export function updateUserData(partialUser: Partial<UserData>): UserData | null 
   return updatedUser;
 }
 
-// Gemini AI API helper
 export const sendMessageToGemini = async (message: string, userData: UserData): Promise<string> => {
   try {
-    const response = await fetch('/api/gemini', {
+    const response = await fetch('https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=AIzaSyBjIA5D2Y7YQN7JVxbxvZV2LnVDZt7E0qY', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ message, userData }),
+      body: JSON.stringify({
+        contents: [
+          {
+            parts: [
+              { text: message }
+            ]
+          }
+        ]
+      }),
     });
 
     if (!response.ok) {
@@ -79,9 +86,11 @@ export const sendMessageToGemini = async (message: string, userData: UserData): 
     }
 
     const data = await response.json();
-    return data.reply; // Assuming the API returns a `reply` field
+    // Prilagodi u zavisnosti od strukture odgovora!
+    const reply = data?.candidates?.[0]?.content?.parts?.[0]?.text || "Nema odgovora.";
+    return reply;
   } catch (error) {
     console.error('Error communicating with Gemini:', error);
-    return "Trenutno imam problema sa komunikacijom. Molim pokušajte kasnije."; // Fallback message
+    return "Trenutno imam problema sa komunikacijom. Molim pokušajte kasnije.";
   }
 };
